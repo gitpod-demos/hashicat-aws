@@ -1,4 +1,4 @@
-# hashicat-aws - Gitpodified
+# Hashicat Gitpodified
 
 ![meowworld](https://github.com/gitpod-demos/hashicat-aws/assets/403332/3edc35e2-fada-4948-8e26-98a3eefc19db)
 
@@ -6,7 +6,7 @@ This repo contains the classic Hashicat example application and terraform code f
 
 **WARNING:** Terraform will store your state file on the local filesystem in your workspace. You should use a remote backend for persisting your state file, so if you forget to run `terraform destroy` and your workspace goes away, you can still recover and delete the infrastructure.
 
-## Gitpod AWS Terraform Setup
+# Gitpod AWS Terraform Setup
 
 To run this workspace against your own AWS account follow these steps:
 

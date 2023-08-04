@@ -3,7 +3,7 @@ image: gitpod/workspace-full
 
 tasks:
   - name: Build
-    init: sudo ./scripts/setup.sh
+    init: chmod +x ./scripts/setup.sh && ./scripts/setup.sh
     command: |
       if [[ -z "${GP_AWS_CONNECTION_ARN}" ]]; then
         echo "The GP_AWS_CONNECTION_ARN environment variable is not set or empty. You must set this to the ARN of the AWS role that should be granted to this workspace."

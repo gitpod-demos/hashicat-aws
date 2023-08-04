@@ -4,7 +4,7 @@
 
 This repo contains the classic Hashicat example application and terraform code for deploying it into an AWS account.
 
-**WARNING:** Terraform will store your state file on the local filesystem in your workspace. You should use a remote backend for persisting your state file, so if you forget to run `terraform destroy` and your workspace goes away, you can still recover and delete the infrastructure.
+**WARNING:** Terraform will store your state file on the local filesystem in your workspace. You should use a remote backend for persisting your state file, so if you forget to run `terraform destroy` and your workspace goes away, you can still recover and delete the infrastructure. Or at least make a backup of the terraform.tfstate onto your laptop just in case. The file will persist across workspace stops and starts but it never hurts to be extra careful.
 
 # Gitpod AWS Terraform Setup
 

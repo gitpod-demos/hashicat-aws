@@ -13,6 +13,25 @@ tasks:
       sudo ./aws/install
   - name: Setup
     init: |
+      count=0
+      while true; do
+        if [ -x "/usr/local/bin/aws" ]; then
+          echo "AWS CLI is installed."
+          break
+        fi
+      
+        count=$((count + 1))
+        if [[ $count -eq 30 ]]; then
+          echo "The AWS CLI was not found after 30 tries. Giving up."
+          break
+        fi
+        
+        sleep 1
+      done
+      echo "Authenticating to AWS account using the Gitpod identity provider..."
       gp idp login aws --role-arn arn:aws:iam::778072100102:role/gitpod-demos-power-user
+      echo "Checking AWS identity..."
       aws sts get-caller-identity
+      echo "******************************************************************************"
       echo "Welcome to your workstation! Terraform is installed and ready to build on AWS."
+      echo "******************************************************************************"

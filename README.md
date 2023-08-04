@@ -29,7 +29,7 @@ Visit the IAM Roles page in the AWS console and create or select a custom role, 
 
 https://us-east-1.console.aws.amazon.com/iamv2/home?region=us-east-1#/roles
 
-Under Trust Relationships click on **Edit Trust Policy** and copy the following JSON, replacing the ARN with the one for your own idp.
+Under the Trust Relationships tab for your role, click on **Edit Trust Policy** and copy the following JSON, replacing the ARN with the one for your own idp.
 
 The StringLike URL should be replaced with the GitHub organization (or username) where you have the hashicat-aws repo stored.
 
@@ -56,7 +56,7 @@ The StringLike URL should be replaced with the GitHub organization (or username)
 }
 ```
 
-Save the Trust Policy. Now start a gitpod workspace with your fork of the repo:
+Save the Trust Policy. Now start a Gitpod workspace with your fork of the repo:
 
 https://gitpod.io/#https://gitub.com/youruser/hashicat-aws
 

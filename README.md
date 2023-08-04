@@ -28,6 +28,8 @@ Copy the ARN of your new identity provider so you can connect it with an IAM Rol
 arn:aws:iam::12345678912:oidc-provider/api.gitpod.io/idp
 ```
 
+## Create (or use existing) AWS IAM Role
+
 Visit the IAM Roles page in the AWS console and create or select a custom role, if you have one already. Your role should have the appropriate policies for the workspace attached. 
 
 https://us-east-1.console.aws.amazon.com/iamv2/home?region=us-east-1#/roles
@@ -62,6 +64,8 @@ The StringLike URL should be replaced with the GitHub organization (or username)
 Save the Trust Policy. Now start a Gitpod workspace with your fork of the repo:
 
 https://gitpod.io/#https://gitub.com/youruser/hashicat-aws
+
+## Set a Gitpod Environment Variable:
 
 Once the workspace starts up you'll need to set an environment variable to tell the workspace which role to assume. The command will look like this, but use your role's ARN:
 

@@ -1,10 +1,9 @@
-# hashicat-aws
-Hashicat: A terraform built application for use in Hashicorp workshops
+# hashicat-aws - Gitpodified
+This repo contains the classic Hashicat example application and terraform code for deploying it into an AWS account.
 
-Includes "Meow World" website.
+**WARNING:** Terraform will store your state file on the local filesystem in your workspace. You should use a remote backend for persisting your state file, so if you forget to run `terraform destroy` and your workspace goes away, you can still recover and delete the infrastructure.
 
 ## Gitpod AWS Terraform Setup
-**WARNING:** Terraform will store your state file on the local filesystem in your workspace. You should use a remote backend for persisting your state file, so if you forget to run `terraform destroy` and your workspace goes away, you can still recover and delete the infrastructure.
 
 To run this workspace against your own AWS account follow these steps:
 

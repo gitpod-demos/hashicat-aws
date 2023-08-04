@@ -3,32 +3,16 @@ image: gitpod/workspace-full
 
 tasks:
   - name: Build
-    init: |
-      wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
-      echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
-      sudo apt -y update && sudo apt -y install terraform
-      curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-      unzip awscliv2.zip
-      sudo ./aws/install
-  - name: Setup
-    init: |
-      count=0
-      while true; do
-        if [ -x "/usr/local/bin/aws" ]; then
-          echo "AWS CLI is installed."
-          break
-        fi
-      
-        count=$((count + 1))
-        if [[ $count -eq 30 ]]; then
-          echo "The AWS CLI was not found after 30 tries. Giving up."
-          break
-        fi
-        
-        sleep 1
-      done
-      echo "Authenticating to AWS account using the Gitpod identity provider..."
-      gp idp login aws --role-arn arn:aws:iam::778072100102:role/gitpod-demos-power-user
+    init: ./scripts/setup.sh
+    command: |
+      if [[ -z "${GP_AWS_CONNECTION_ARN}" ]]; then
+        echo "The GP_AWS_CONNECTION_ARN environment variable is not set or empty. You must set this to the ARN of the AWS role that should be granted to this workspace."
+        exit 1
+      else
+        echo "Authenticating to AWS account using the Gitpod Identity Provider..."
+        echo "AWS IAM Role: ${GP_AWS_CONNECTION_ARN}"
+      fi
+      gp idp login aws --role-arn $GP_AWS_CONNECTION_ARN
       echo "Checking AWS identity..."
       aws sts get-caller-identity
       echo "******************************************************************************"

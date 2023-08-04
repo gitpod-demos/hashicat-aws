@@ -1,9 +1,9 @@
 # Gitpod YAML configuration for a Terraform workshop
-image: gitpod/workspace-full
+image:
+  file: .gitpod.Dockerfile
 
 tasks:
-  - name: Build
-    init: chmod +x ./scripts/setup.sh && ./scripts/setup.sh
+  - name: AWS Auth
     command: |
       if [[ -z "${GP_AWS_CONNECTION_ARN}" ]]; then
         echo "The GP_AWS_CONNECTION_ARN environment variable is not set or empty. You must set this to the ARN of the AWS role that should be granted to this workspace."

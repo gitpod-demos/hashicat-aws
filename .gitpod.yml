@@ -18,3 +18,8 @@ tasks:
       echo "******************************************************************************"
       echo "Welcome to your workstation! Terraform is installed and ready to build on AWS."
       echo "******************************************************************************"
+
+# Pre-install relevant VS Code extensions
+vscode:
+  extensions:
+    - hashicorp.terraform

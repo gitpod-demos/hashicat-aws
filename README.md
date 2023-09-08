@@ -1,6 +1,6 @@
 # Hashicat Gitpodified
 
-![meowworld](https://github.com/gitpod-demos/hashicat-aws/assets/403332/3edc35e2-fada-4948-8e26-98a3eefc19db)
+![meowworld](https://placekitten.com/575/400)
 
 This repo contains the classic Hashicat example application and terraform code for deploying it into an AWS account.
 
